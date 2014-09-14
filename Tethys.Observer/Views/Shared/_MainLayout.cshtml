@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @if (Tethys.Observer.Infrastructure.SecurityManager.Current.LoggedUser != null)
+        {
+            @Html.ActionLink("Logout", "Logout", "User")
+        }
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

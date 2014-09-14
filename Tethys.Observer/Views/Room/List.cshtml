@@ -1,0 +1,21 @@
+﻿@model Tethys.Observer.ViewModels.Room.RoomsListViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Monitoring</h2>
+
+<table>
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

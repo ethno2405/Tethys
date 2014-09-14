@@ -1,0 +1,29 @@
+﻿@model Tethys.Observer.ViewModels.User.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post, new { id = "login-form" }))
+{
+    <div>
+        @Html.DisplayNameFor(x => x.Login)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Login)
+        @Html.ValidationMessageFor(x => x.Login)
+    </div>
+    <div>
+        @Html.DisplayNameFor(x => x.Password)
+    </div>
+    <div>
+        @Html.PasswordFor(x => x.Password)
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+    <div>
+        @Html.ValidationMessage("Username")
+    </div>
+
+    <a href="javascript:document.getElementById('login-form').submit()">Login</a>
+}
