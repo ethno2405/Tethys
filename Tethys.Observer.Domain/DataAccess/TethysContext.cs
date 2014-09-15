@@ -12,9 +12,18 @@ namespace Tethys.Observer.Domain.DataAccess
     public class TethysContext : DbContext
     {
         public TethysContext()
-            : base("TethysContext")
+            : this("TethysConnection")
         {
         }
+
+        public TethysContext(string connectionString)
+            : base(connectionString)
+        {
+        }
+
+        public DbSet<Call> Calls { get; set; }
+
+        public DbSet<CallType> CallTypes { get; set; }
 
         public DbSet<Department> Departments { get; set; }
 

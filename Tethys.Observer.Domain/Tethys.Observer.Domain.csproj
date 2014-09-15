@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="DataAccess\TethysContext.cs" />
+    <Compile Include="Entities\Call.cs" />
+    <Compile Include="Entities\CallType.cs" />
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Device.cs" />
     <Compile Include="Entities\Location.cs" />
@@ -69,6 +71,10 @@
     <Compile Include="Migrations\201409141347107_Required_fields.Designer.cs">
       <DependentUpon>201409141347107_Required_fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409151545407_Added_Calls_And_Call_types.cs" />
+    <Compile Include="Migrations\201409151545407_Added_Calls_And_Call_types.Designer.cs">
+      <DependentUpon>201409151545407_Added_Calls_And_Call_types.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409141347107_Required_fields.resx">
       <DependentUpon>201409141347107_Required_fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409151545407_Added_Calls_And_Call_types.resx">
+      <DependentUpon>201409151545407_Added_Calls_And_Call_types.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

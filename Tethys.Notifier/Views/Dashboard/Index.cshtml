@@ -1,0 +1,18 @@
+﻿@model Tethys.Notifier.ViewModels.Dashboard.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
+{
+    <div>
+        @foreach (var callType in Model.CallTypes)
+        {
+            <div>
+                <input type="button" data-isActive="@callType.IsActive" value="@callType.Name" />
+            </div>
+        }
+    </div>
+}
