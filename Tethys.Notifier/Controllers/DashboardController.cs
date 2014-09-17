@@ -11,6 +11,7 @@ namespace Tethys.Notifier.Controllers
 {
     public class DashboardController : Controller
     {
+        [HttpGet]
         public async Task<ActionResult> Index()
         {
             var callTypeService = new CallTypeService();
@@ -20,11 +21,6 @@ namespace Tethys.Notifier.Controllers
                 CallTypes = calltypes
             };
 
-            return View(model);
-        }
-
-        public ActionResult Index(IndexViewModel model)
-        {
             return View(model);
         }
     }

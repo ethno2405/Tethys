@@ -6,13 +6,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
+using Tethys.Notifier.Infrastructure;
 using Tethys.Notifier.Models.Calls;
 
 namespace Tethys.Notifier.Services
 {
     public class CallTypeService
     {
-        private string baseUrl = "http://localhost:5050/api";
+        private string baseUrl = GlobalSettings.Current.ObserverWebApiBaseUrl;
 
         public async Task<IList<CallType>> Get()
         {

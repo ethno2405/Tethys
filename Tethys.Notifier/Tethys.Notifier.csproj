@@ -111,9 +111,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\LocalizationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\GlobalSettings.cs" />
     <Compile Include="Models\Calls\Call.cs" />
     <Compile Include="Models\Calls\CallType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +148,12 @@
   <ItemGroup>
     <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Localization\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -164,7 +172,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49562</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6000/</IISUrl>
+          <IISUrl>http://localhost:4000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
