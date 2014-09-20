@@ -12,7 +12,7 @@ namespace Tethys.Observer.Domain.DataAccess
     public class TethysContext : DbContext
     {
         public TethysContext()
-            : this("TethysConnection")
+            : this("Tethys")
         {
         }
 

@@ -13,8 +13,5 @@ namespace Tethys.Observer.Domain.Entities
 
         [Required]
         public string Name { get; set; }
-
-        [Required]
-        public virtual Room Room { get; set; }
     }
 }

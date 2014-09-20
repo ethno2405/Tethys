@@ -10,10 +10,11 @@ namespace Tethys.Observer.Domain.Entities
     {
         public Guid Id { get; set; }
 
+        public virtual Location Location { get; set; }
+
         [Required]
         public string Name { get; set; }
 
-        [Required]
         public virtual Room Room { get; set; }
     }
 }

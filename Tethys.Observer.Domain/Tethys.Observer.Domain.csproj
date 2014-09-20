@@ -75,8 +75,20 @@
     <Compile Include="Migrations\201409151545407_Added_Calls_And_Call_types.Designer.cs">
       <DependentUpon>201409151545407_Added_Calls_And_Call_types.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409201443472_Updated_Device_And_Location.cs" />
+    <Compile Include="Migrations\201409201443472_Updated_Device_And_Location.Designer.cs">
+      <DependentUpon>201409201443472_Updated_Device_And_Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409201525175_Room_Department_Not_Required.cs" />
+    <Compile Include="Migrations\201409201525175_Room_Department_Not_Required.Designer.cs">
+      <DependentUpon>201409201525175_Room_Department_Not_Required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\RoomService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,6 +106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409151545407_Added_Calls_And_Call_types.resx">
       <DependentUpon>201409151545407_Added_Calls_And_Call_types.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409201443472_Updated_Device_And_Location.resx">
+      <DependentUpon>201409201443472_Updated_Device_And_Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409201525175_Room_Department_Not_Required.resx">
+      <DependentUpon>201409201525175_Room_Department_Not_Required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

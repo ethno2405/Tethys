@@ -9,7 +9,6 @@ namespace Tethys.Observer.Domain.Entities
 {
     public class Room
     {
-        [Required]
         public virtual Department Department { get; set; }
 
         public virtual ICollection<Device> Devices { get; set; }

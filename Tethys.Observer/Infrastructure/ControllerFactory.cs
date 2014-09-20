@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System.Data;
+using System.Data.Common;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Tethys.Observer.Controllers;
@@ -28,7 +29,7 @@ namespace Tethys.Observer.Infrastructure
             var baseController = controller as BaseController;
             if (baseController.Context != null)
             {
-                baseController.Dispose();
+                baseController.Context.Dispose();
             }
 
             base.ReleaseController(controller);

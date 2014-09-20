@@ -79,7 +79,7 @@ namespace Tethys.Observer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.123.
+        ///   Looks up a localized string similar to 24051991.
         /// </summary>
         internal static string DatabasePassword {
             get {
@@ -88,7 +88,7 @@ namespace Tethys.Observer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to localhost\SQLSERVER.
+        ///   Looks up a localized string similar to localhost\SQLEXPRESS.
         /// </summary>
         internal static string DatabaseServerName {
             get {
