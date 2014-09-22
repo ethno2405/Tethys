@@ -15,6 +15,27 @@ namespace Tethys.Observer.Domain.Services
         {
         }
 
+        public void AssignRoom(string departmentName, Room room)
+        {
+            if (string.IsNullOrEmpty(departmentName)) throw new ArgumentNullException("department");
+            if (room == null) throw new ArgumentNullException("room");
+
+            var department = Context.Departments.FirstOrDefault(x => x.Name == departmentName);
+
+            AssignRoom(department, room);
+        }
+
+        public void AssignRoom(string departmentName, string roomName)
+        {
+            if (string.IsNullOrEmpty(departmentName)) throw new ArgumentNullException("department");
+            if (string.IsNullOrEmpty(roomName)) throw new ArgumentNullException("roomName");
+
+            var department = Context.Departments.FirstOrDefault(x => x.Name == departmentName);
+            var room = Context.Rooms.FirstOrDefault(x => x.Name == roomName) ?? new Room { Name = roomName };
+
+            AssignRoom(department, room);
+        }
+
         public void AssignRoom(Department department, Room room)
         {
             if (department == null) throw new ArgumentNullException("department");
@@ -35,6 +56,8 @@ namespace Tethys.Observer.Domain.Services
             {
                 throw new InvalidOperationException(string.Format("Room {0} is already assigned to department {1}", room.Name, existingDepartment.Name));
             }
+
+            room.Locations = Context.Locations.ToList();
 
             existingDepartment.Rooms.Add(room);
             Context.SaveChanges();

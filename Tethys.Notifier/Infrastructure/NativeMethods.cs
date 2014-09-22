@@ -20,6 +20,11 @@ namespace Tethys.Notifier.Infrastructure
                 throw new ArgumentNullException("ipAddress");
             }
 
+            if (ipAddress == "::1" || ipAddress == "localhost")
+            {
+                return string.Empty;
+            }
+
             var ip = IPAddress.Parse(ipAddress);
             var mac = new byte[6];
             var macAddressLength = (uint)mac.Length;

@@ -1,8 +1,99 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model Tethys.Notifier.ViewModels.Localization.LocalizationViewModel
+@using Tethys.Notifier.Infrastructure
+
+@{
+    ViewBag.Title = "Localization";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-@ViewBag.Ip
-<br />
-@ViewBag.Mac
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.signalR-2.1.1.js"></script>
+    <script src="signalr/hubs"></script>
+
+    <script type="text/javascript">
+        function clearDropDownById(dropDownId) {
+            $('#' + dropDownId).find('option').remove();
+        }
+
+        function populateDropDown(dropDownId, values) {
+            clearDropDownById(dropDownId);
+
+            if (!values) {
+                return;
+            }
+
+            var select = document.getElementById(dropDownId);
+
+            for (var i = 0; i < values.length; i++) {
+                var option = document.createElement('option');
+                option.value = values[i].Name;
+                option.innerHTML = values[i].Name;
+                select.appendChild(option);
+            }
+        }
+
+        $(function () {
+            var localization = $.connection.localizationHub;
+            localization.client.roomsRecieved = function (rooms) {
+                populateDropDown('rooms-select', rooms);
+                $('#rooms-select').change();
+            };
+
+            localization.client.locationsRecieved = function (locations) {
+                console.log('locationsRecieved');
+                populateDropDown('locations-select', locations);
+            };
+
+            $.connection.hub.start().done(function () {
+                $('#department-select').change(function () {
+                    if (!$(this).val()) {
+                        clearDropDownById('rooms-select');
+                        clearDropDownById('locations-select');
+                        return;
+                    }
+
+                    localization.server.getRooms($(this).val())
+                });
+
+                $('#rooms-select').change(function () {
+                    localization.server.getLocations($(this).val(), $('#department-select').val())
+                });
+            });
+        });
+    </script>
+}
+
+@using (Html.BeginForm("Index", "Localization", FormMethod.Post, new { id = "localization-form" }))
+{
+    <div>
+        @Html.LabelFor(x => x.Device.Name)
+        @Html.TextBoxFor(x => x.Device.Name)
+        @Html.ValidationMessageFor(x => x.Device.Name)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Device.IpAddress)
+        @Html.HiddenFor(x => x.Device.IpAddress)
+        <span>@Model.Device.IpAddress</span>
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Device.MacAddress)
+        @Html.HiddenFor(x => x.Device.MacAddress)
+        <span>@Model.Device.MacAddress</span>
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Device.Room.Department)
+        @Html.DropDownListFor(x => x.Device.Room.Department.Name, Model.Departments.AsSelectList(x => x.Name, Model.Device.Room.Department.Name), new { id = "department-select" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Device.Room)
+        <select id="rooms-select"></select>
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Device.Location)
+        <select id="locations-select"></select>
+    </div>
+
+    <a href="javascript:document.getElementById('localization-form').submit()">Localize</a>
+}

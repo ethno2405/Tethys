@@ -1,24 +1,23 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Tethys.Observer.Domain.Entities
+namespace Tethys.Notifier.Models
 {
     public class Device
     {
-        public Guid Id { get; set; }
-
+        [DisplayName("IP")]
         public string IpAddress { get; set; }
 
-        public virtual Location Location { get; set; }
+        public Location Location { get; set; }
 
+        [DisplayName("MAC")]
         public string MacAddress { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        public virtual Room Room { get; set; }
+        public Room Room { get; set; }
     }
 }

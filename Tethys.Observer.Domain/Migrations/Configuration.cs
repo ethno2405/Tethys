@@ -59,6 +59,38 @@ namespace Tethys.Observer.Domain.Migrations
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000006"),
                     Name = "Presence",
                 });
+
+            context.Locations.AddOrUpdate(
+                new Location
+                {
+                    Id = Guid.Parse("00000000-0000-0000-0000-000000000001"),
+                    Name = "BED1"
+                },
+                new Location
+                {
+                    Id = Guid.Parse("00000000-0000-0000-0000-000000000002"),
+                    Name = "BED2"
+                },
+                new Location
+                {
+                    Id = Guid.Parse("00000000-0000-0000-0000-000000000003"),
+                    Name = "BED3"
+                },
+                new Location
+                {
+                    Id = Guid.Parse("00000000-0000-0000-0000-000000000004"),
+                    Name = "BED4"
+                },
+                new Location
+                {
+                    Id = Guid.Parse("00000000-0000-0000-0000-000000000005"),
+                    Name = "BED5"
+                },
+                new Location
+                {
+                    Id = Guid.Parse("00000000-0000-0000-0000-000000000006"),
+                    Name = "Next to the door"
+                });
         }
     }
 }

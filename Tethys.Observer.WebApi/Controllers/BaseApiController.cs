@@ -10,6 +10,7 @@ namespace Tethys.Observer.WebApi.Controllers
 {
     public abstract class BaseApiController : ApiController
     {
+        private static readonly object mutex = new object();
         private TethysContext context;
 
         protected TethysContext Context
@@ -18,7 +19,13 @@ namespace Tethys.Observer.WebApi.Controllers
             {
                 if (context == null)
                 {
-                    context = new TethysContext();
+                    lock (mutex)
+                    {
+                        if (context == null)
+                        {
+                            context = new TethysContext();
+                        }
+                    }
                 }
 
                 return context;

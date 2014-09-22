@@ -48,5 +48,25 @@ namespace Tethys.Observer.Domain.Services
             var departmentService = new DepartmentService(Context);
             departmentService.AssignRoom(department, room);
         }
+
+        public void AssignRoomToDepartment(string departmentName, Room room)
+        {
+            if (string.IsNullOrEmpty(departmentName)) throw new ArgumentNullException("department");
+            if (room == null) throw new ArgumentNullException("room");
+
+            var departmentService = new DepartmentService(Context);
+
+            departmentService.AssignRoom(departmentName, room);
+        }
+
+        public void AssignRoomToDepartment(string departmentName, string roomName)
+        {
+            if (string.IsNullOrEmpty(departmentName)) throw new ArgumentNullException("department");
+            if (string.IsNullOrEmpty(roomName)) throw new ArgumentNullException("roomName");
+
+            var departmentService = new DepartmentService(Context);
+
+            departmentService.AssignRoom(departmentName, roomName);
+        }
     }
 }

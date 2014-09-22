@@ -74,7 +74,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -138,12 +137,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ControllerFactory.cs" />
+    <Compile Include="Infrastructure\Extensions.cs" />
     <Compile Include="Infrastructure\RequireAuthorizationAttribute.cs" />
     <Compile Include="Infrastructure\SecurityManager.cs" />
     <Compile Include="Infrastructure\Startup.cs" />
@@ -153,6 +154,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TethysResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Department\DepartmentsViewModel.cs" />
+    <Compile Include="ViewModels\Room\CreateRoomViewModel.cs" />
     <Compile Include="ViewModels\Room\RoomsListViewModel.cs" />
     <Compile Include="ViewModels\User\LoginViewModel.cs" />
   </ItemGroup>
@@ -176,6 +179,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Room\List.cshtml" />
+    <Content Include="Views\Department\List.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

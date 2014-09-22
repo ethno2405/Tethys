@@ -13,13 +13,11 @@ namespace Tethys.Notifier.Services
 {
     public class CallTypeService
     {
-        private string baseUrl = GlobalSettings.Current.ObserverWebApiBaseUrl;
-
         public async Task<IList<CallType>> Get()
         {
             using (var httpClient = new HttpClient())
             {
-                var json = await httpClient.GetStringAsync(string.Concat(baseUrl, "/calltype/get"));
+                var json = await httpClient.GetStringAsync(string.Concat(GlobalSettings.Current.ObserverWebApiBaseUrl, "/calltype/get"));
 
                 return Json.Decode<IList<CallType>>(json);
             }

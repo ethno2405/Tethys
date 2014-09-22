@@ -1,0 +1,39 @@
+﻿@model Tethys.Observer.ViewModels.Department.DepartmentsViewModel
+
+@{
+    ViewBag.Title = "Departments";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Department", FormMethod.Post, new { id = "create-department-form" }))
+{
+    <div>
+        @Html.LabelFor(x => x.NewDepartmentName)
+        @Html.TextBoxFor(x => x.NewDepartmentName)
+        @Html.ValidationMessageFor(x => x.NewDepartmentName)
+    </div>
+
+    <a href="javascript:document.getElementById('create-department-form').submit()">Create</a>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>Rooms</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Departments)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Rooms.Count
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
