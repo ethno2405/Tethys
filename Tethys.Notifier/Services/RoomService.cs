@@ -18,7 +18,7 @@ namespace Tethys.Notifier.Services
             {
                 var json = await httpClient.GetStringAsync(string.Concat(GlobalSettings.Current.ObserverWebApiBaseUrl, "/room/get"));
 
-                return Json.Decode<IList<Room>>(json);
+                return Json.Decode<List<Room>>(json);
             }
         }
 
@@ -26,7 +26,7 @@ namespace Tethys.Notifier.Services
         {
             using (var httpClient = new HttpClient())
             {
-                var json = await httpClient.GetStringAsync(string.Concat(GlobalSettings.Current.ObserverWebApiBaseUrl, "/room/get", "department=", departmentName));
+                var json = await httpClient.GetStringAsync(string.Concat(GlobalSettings.Current.ObserverWebApiBaseUrl, "/room/get?", "department=", departmentName));
 
                 return Json.Decode<IList<Room>>(json);
             }

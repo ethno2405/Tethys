@@ -68,31 +68,34 @@
 @using (Html.BeginForm("Index", "Localization", FormMethod.Post, new { id = "localization-form" }))
 {
     <div>
-        @Html.LabelFor(x => x.Device.Name)
-        @Html.TextBoxFor(x => x.Device.Name)
-        @Html.ValidationMessageFor(x => x.Device.Name)
+        @Html.LabelFor(x => x.DeviceName)
+        @Html.TextBoxFor(x => x.DeviceName)
+        @Html.ValidationMessageFor(x => x.DeviceName)
     </div>
     <div>
-        @Html.LabelFor(x => x.Device.IpAddress)
-        @Html.HiddenFor(x => x.Device.IpAddress)
-        <span>@Model.Device.IpAddress</span>
+        @Html.LabelFor(x => x.IpAddress)
+        @Html.HiddenFor(x => x.IpAddress)
+        <span>@Model.IpAddress</span>
     </div>
     <div>
-        @Html.LabelFor(x => x.Device.MacAddress)
-        @Html.HiddenFor(x => x.Device.MacAddress)
-        <span>@Model.Device.MacAddress</span>
+        @Html.LabelFor(x => x.MacAddress)
+        @Html.HiddenFor(x => x.MacAddress)
+        <span>@Model.MacAddress</span>
     </div>
     <div>
-        @Html.LabelFor(x => x.Device.Room.Department)
-        @Html.DropDownListFor(x => x.Device.Room.Department.Name, Model.Departments.AsSelectList(x => x.Name, Model.Device.Room.Department.Name), new { id = "department-select" })
+        @Html.LabelFor(x => x.SelectedDepartmentName)
+        @Html.DropDownListFor(x => x.SelectedDepartmentName, Model.Departments.AsSelectList(x => x.Name, Model.SelectedDepartmentName), new { id = "department-select" })
+        @Html.ValidationMessageFor(x => x.SelectedDepartmentName)
     </div>
     <div>
-        @Html.LabelFor(x => x.Device.Room)
-        <select id="rooms-select"></select>
+        @Html.LabelFor(x => x.SelectedRoomName)
+        @Html.DropDownListFor(x => x.SelectedRoomName, new SelectListItem[0], new { id = "rooms-select" })
+        @Html.ValidationMessageFor(x => x.SelectedRoomName)
     </div>
     <div>
-        @Html.LabelFor(x => x.Device.Location)
-        <select id="locations-select"></select>
+        @Html.LabelFor(x => x.SelectedLocationName)
+        @Html.DropDownListFor(x => x.SelectedLocationName, new SelectListItem[0], new { id = "locations-select" })
+        @Html.ValidationMessageFor(x => x.SelectedLocationName)
     </div>
 
     <a href="javascript:document.getElementById('localization-form').submit()">Localize</a>

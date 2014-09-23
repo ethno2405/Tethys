@@ -31,9 +31,5 @@ namespace Tethys.Notifier.Hubs
 
             Clients.Caller.roomsRecieved(rooms);
         }
-
-        public void Localize(string department, string room, string location)
-        {
-        }
     }
 }

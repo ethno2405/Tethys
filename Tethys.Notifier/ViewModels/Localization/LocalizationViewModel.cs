@@ -12,10 +12,22 @@ namespace Tethys.Notifier.ViewModels.Localization
     {
         public IEnumerable<Department> Departments { get; set; }
 
-        public Device Device { get; set; }
+        [DisplayName("Device")]
+        [Required(ErrorMessage = "Please select a device name")]
+        public string DeviceName { get; set; }
+
+        public string IpAddress { get; set; }
+
+        public string MacAddress { get; set; }
 
         public IEnumerable<Room> Rooms { get; set; }
 
+        [DisplayName("Department")]
+        [Required(ErrorMessage = "Please select a department")]
+        public string SelectedDepartmentName { get; set; }
+
+        [DisplayName("Location")]
+        [Required(ErrorMessage = "Please select a room location")]
         public string SelectedLocationName { get; set; }
 
         [DisplayName("Room")]
