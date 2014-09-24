@@ -4,16 +4,42 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/Assets/Css/Style.css" rel="stylesheet" />
+    <link href="~/Assets/Css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @if (Tethys.Observer.Infrastructure.SecurityManager.Current.LoggedUser != null)
-        {
-            @Html.ActionLink("Logout", "Logout", "User")
+    <div class="container">
+        @{
+            var hasLogin = Tethys.Observer.Infrastructure.SecurityManager.Current.LoggedUser != null;
+
+            if (hasLogin)
+            {
+            <div class="logo">
+                <div>
+                    <b>Tethys</b>
+                </div>
+                <div class="text-muted text-right">
+                    <i>Observer</i>
+                </div>
+            </div>
+            <div class="col-sm-3 pull-left">
+                @{
+                var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
+                }
+
+                <ul class="nav nav-pills nav-stacked well well-sm main-navigation" role="tablist">
+                    <li class="@(controllerName == "room" ? "active" : string.Empty)">@Html.ActionLink("Rooms", "List", "Room")</li>
+                    <li class="@(controllerName == "department" ? "active" : string.Empty)">@Html.ActionLink("Departments", "List", "Department")</li>
+                    <li class="nav-divider"></li>
+                    <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+                </ul>
+            </div>
+            }
         }
-    </div>
-    <div>
-        @RenderBody()
+
+        <div class="@(hasLogin ? "col-sm-9 pull-left" : string.Empty)">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>

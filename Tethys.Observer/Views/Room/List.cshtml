@@ -1,19 +1,61 @@
 ﻿@model Tethys.Observer.ViewModels.Room.RoomsListViewModel
+@using Tethys.Observer.Infrastructure;
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Rooms";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Monitoring</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Html.BeginForm("Create", "Room", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewRoomName, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.NewRoomName, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewRoomName)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewRoomDepartment, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(x => x.NewRoomDepartment, Model.DepartmentsNames.AsSelectList(x => x, Model.NewRoomDepartment), new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewRoomDepartment)
+                    </div>
+                </div>
+            </div>
 
-<table>
+            <button class="btn btn-primary pull-right" type="submit">Create</button>
+        }
+    </div>
+</div>
+
+<table class="table table-hover">
     <thead>
+        <tr>
+            <th>Room</th>
+            <th>Department</th>
+            <th>Number of devices</th>
+        </tr>
     </thead>
     <tbody>
         @foreach (var room in Model.Rooms)
         {
-
+            <tr>
+                <td>
+                    @room.Name
+                </td>
+                <td>
+                    @room.Department.Name
+                </td>
+                <td>
+                    @room.Devices.Count
+                </td>
+            </tr>
         }
     </tbody>
 </table>

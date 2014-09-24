@@ -1,0 +1,20 @@
+﻿.login-panel {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    margin-left: 100px;
+    width: 157px;
+}
+
+    .logo b {
+        font-size: 50px;
+    }
+
+.login-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30%;
+    max-width: 500px;
+}

@@ -5,18 +5,26 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-@using (Html.BeginForm("Create", "Department", FormMethod.Post, new { id = "create-department-form" }))
-{
-    <div>
-        @Html.LabelFor(x => x.NewDepartmentName)
-        @Html.TextBoxFor(x => x.NewDepartmentName)
-        @Html.ValidationMessageFor(x => x.NewDepartmentName)
+<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Html.BeginForm("Create", "Department", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewDepartmentName, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.NewDepartmentName, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewDepartmentName)
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary pull-right" type="submit">Create</button>
+        }
     </div>
+</div>
 
-    <a href="javascript:document.getElementById('create-department-form').submit()">Create</a>
-}
-
-<table>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Department</th>

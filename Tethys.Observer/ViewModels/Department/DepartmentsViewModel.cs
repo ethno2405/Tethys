@@ -12,7 +12,7 @@ namespace Tethys.Observer.ViewModels.Department
         public IEnumerable<Observer.Domain.Entities.Department> Departments { get; set; }
 
         [MaxLength(20)]
-        [DisplayName("Name")]
+        [DisplayName("Department")]
         [Required(ErrorMessage = "Please specify a department name")]
         public string NewDepartmentName { get; set; }
     }

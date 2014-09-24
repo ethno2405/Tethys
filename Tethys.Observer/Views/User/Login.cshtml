@@ -4,26 +4,45 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+<div class="login-wrapper">
+    <div class="logo pull-right">
+        <div>
+            <b>Tethys</b>
+        </div>
+        <div class="text-muted text-right">
+            <i>Observer</i>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 
-@using (Html.BeginForm("Login", "User", FormMethod.Post, new { id = "login-form" }))
-{
-    <div>
-        @Html.DisplayNameFor(x => x.Login)
-    </div>
-    <div>
-        @Html.TextBoxFor(x => x.Login)
-        @Html.ValidationMessageFor(x => x.Login)
-    </div>
-    <div>
-        @Html.DisplayNameFor(x => x.Password)
-    </div>
-    <div>
-        @Html.PasswordFor(x => x.Password)
-        @Html.ValidationMessageFor(x => x.Password)
-    </div>
-    <div>
-        @Html.ValidationMessage("Username")
-    </div>
+    <div class="panel panel-default login-panel">
+        <div class="panel-body">
+            @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Login, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(x => x.Login)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Password, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(x => x.Password)
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    @Html.ValidationMessage("Username")
+                </div>
 
-    <a href="javascript:document.getElementById('login-form').submit()">Login</a>
-}
+                <button type="submit" class="btn btn-primary pull-right">Login</button>
+            }
+        </div>
+    </div>
+</div>

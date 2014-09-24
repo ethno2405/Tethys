@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Tethys.Observer.Domain.Entities;
@@ -11,38 +12,34 @@ namespace Tethys.Observer.Controllers
     [RequireAuthorization]
     public class RoomController : BaseController
     {
-        [HttpGet]
-        public ActionResult Create()
-        {
-            var model = new CreateRoomViewModel
-            {
-                Departments = Context.Departments
-            };
-
-            return View(model);
-        }
-
         [HttpPost]
-        public ActionResult Create(CreateRoomViewModel model)
+        public ActionResult Create(RoomsListViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                model.Rooms = (Session["Rooms"] as IList<Room>) ?? new List<Room>();
+                model.DepartmentsNames = (Session["DepartmentsNames"] as IList<string>) ?? new List<string>();
+
+                return View("List", model);
             }
 
             var roomService = new RoomService(Context);
 
-            roomService.AssignRoomToDepartment(model.DepartmentName, model.Name);
+            roomService.AssignRoomToDepartment(model.NewRoomDepartment, model.NewRoomName);
 
-            return RedirectToAction("Create");
+            return RedirectToAction("List");
         }
 
         public ActionResult List()
         {
             var model = new RoomsListViewModel
             {
-                Rooms = Context.Rooms.ToList()
+                Rooms = Context.Rooms.ToList(),
+                DepartmentsNames = Context.Departments.Select(x => x.Name).ToList()
             };
+
+            Session["Rooms"] = model.Rooms;
+            Session["DepartmentsNames"] = model.DepartmentsNames;
 
             return View(model);
         }
