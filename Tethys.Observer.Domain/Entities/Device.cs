@@ -12,6 +12,9 @@ namespace Tethys.Observer.Domain.Entities
 
         public string IpAddress { get; set; }
 
+        [Required]
+        public bool IsLocalized { get; set; }
+
         public virtual Location Location { get; set; }
 
         public string MacAddress { get; set; }

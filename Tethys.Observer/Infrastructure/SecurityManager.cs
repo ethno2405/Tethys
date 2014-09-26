@@ -62,8 +62,18 @@ namespace Tethys.Observer.Infrastructure
             if (user.Password != password.GetSHA512()) { return false; }
 
             LoggedUser = user;
+            HttpContext.Current.Session.Timeout = 24 * 60;
 
             return true;
+        }
+
+        internal void Login(string username, TethysContext context)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Login == username);
+
+            if (user == null) return;
+
+            LoggedUser = user;
         }
     }
 }

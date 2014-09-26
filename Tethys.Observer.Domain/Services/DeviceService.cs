@@ -30,7 +30,7 @@ namespace Tethys.Observer.Domain.Services
             roomService.AssignDevice(room, device);
         }
 
-        public Device Create(string name, string ipAddress, string macAddress)
+        public Device Create(string name, string ipAddress, string macAddress, bool isLocalized)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
             if (string.IsNullOrEmpty(ipAddress)) throw new ArgumentNullException("ipAddress");
@@ -41,7 +41,8 @@ namespace Tethys.Observer.Domain.Services
                 Id = Guid.NewGuid(),
                 Name = name,
                 IpAddress = ipAddress,
-                MacAddress = macAddress
+                MacAddress = macAddress,
+                IsLocalized = isLocalized
             };
         }
 
@@ -70,14 +71,38 @@ namespace Tethys.Observer.Domain.Services
                 return string.Format("Location {0} was not found in room {1}", device.Location.Name, room.Name);
             }
 
-            var attachedDevice = Create(device.Name, device.IpAddress, device.MacAddress);
+            var existingDevice = Context.Devices.FirstOrDefault(x => x.IpAddress == device.IpAddress && x.MacAddress == device.MacAddress);
+            if (existingDevice != null)
+            {
+                existingDevice.Name = device.Name;
+                existingDevice.IsLocalized = true;
+                existingDevice.Location = location;
+                existingDevice.Room = room;
 
-            attachedDevice.Location = location;
-            room.Devices.Add(attachedDevice);
+                Context.SaveChanges();
+
+                return string.Format("Device {0} was successfully localized in department {1}, room {2}, location {3}", device.Name, department.Name, room.Name, location.Name);
+            }
+
+            var newDevice = Create(device.Name, device.IpAddress, device.MacAddress, true);
+
+            newDevice.Location = location;
+            room.Devices.Add(newDevice);
 
             Context.SaveChanges();
 
             return string.Format("Device {0} was successfully localized in department {1}, room {2}, location {3}", device.Name, department.Name, room.Name, location.Name);
+        }
+
+        public void Unlocalize(Device device)
+        {
+            if (device == null) throw new ArgumentNullException();
+
+            device.Location = null;
+            device.Room = null;
+            device.IsLocalized = false;
+
+            Context.SaveChanges();
         }
     }
 }

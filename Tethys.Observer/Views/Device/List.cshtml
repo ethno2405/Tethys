@@ -1,0 +1,43 @@
+﻿@model Tethys.Observer.ViewModels.Device.DevicesViewModel
+
+@{
+    ViewBag.Title = "Devices";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Room</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var device in Model.Devices)
+        {
+            <tr class="@(device.IsLocalized ? string.Empty : "bg-danger")">
+                <td>
+                    @device.Name
+                </td>
+                <td>
+                    @device.Room.Department.Name
+                </td>
+                <td>
+                    @device.Room.Name
+                </td>
+                <td>
+                    @device.Location.Name
+                </td>
+                <td>
+                    @if (device.IsLocalized)
+                    {
+                        @Html.ActionLink("Unlocalize", "Unlocalize", new { id = device.Id })    
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -65,38 +65,70 @@
     </script>
 }
 
-@using (Html.BeginForm("Index", "Localization", FormMethod.Post, new { id = "localization-form" }))
+@using (Html.BeginForm("Index", "Localization", FormMethod.Post, new { @class = "form-horizontal localization-form" }))
 {
-    <div>
-        @Html.LabelFor(x => x.DeviceName)
-        @Html.TextBoxFor(x => x.DeviceName)
-        @Html.ValidationMessageFor(x => x.DeviceName)
+    <div class="form-group">
+        @Html.LabelFor(x => x.DeviceName, new { @class = "col-sm-1 control-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.DeviceName, new { @class = "form-control" })
+            <div class="text-danger">
+                @Html.ValidationMessageFor(x => x.DeviceName)
+            </div>
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(x => x.IpAddress)
-        @Html.HiddenFor(x => x.IpAddress)
-        <span>@Model.IpAddress</span>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.IpAddress, new { @class = "col-sm-1 control-label" })
+        <div class="col-sm-10">
+            @Html.HiddenFor(x => x.IpAddress)
+            <p class="form-control-static">@Model.IpAddress</p>
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(x => x.MacAddress)
-        @Html.HiddenFor(x => x.MacAddress)
-        <span>@Model.MacAddress</span>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.MacAddress, new { @class = "col-sm-1 control-label" })
+        <div class="col-sm-10">
+            @Html.HiddenFor(x => x.MacAddress)
+            <p class="form-control-static">@Model.MacAddress</p>
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(x => x.SelectedDepartmentName)
-        @Html.DropDownListFor(x => x.SelectedDepartmentName, Model.Departments.AsSelectList(x => x.Name, Model.SelectedDepartmentName), new { id = "department-select" })
-        @Html.ValidationMessageFor(x => x.SelectedDepartmentName)
+    <div class="clearfix"></div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.SelectedDepartmentName, new { @class = "col-sm-1 control-label" })
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.SelectedDepartmentName, Model.Departments.AsSelectList(x => x.Name, string.Empty), new { id = "department-select", @class = "form-control" })
+            <div class="text-danger">
+                @Html.ValidationMessageFor(x => x.SelectedDepartmentName)
+            </div>
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(x => x.SelectedRoomName)
-        @Html.DropDownListFor(x => x.SelectedRoomName, new SelectListItem[0], new { id = "rooms-select" })
-        @Html.ValidationMessageFor(x => x.SelectedRoomName)
+    <div class="clearfix"></div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.SelectedRoomName, new { @class = "col-sm-1 control-label" })
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.SelectedRoomName, new SelectListItem[0], new { id = "rooms-select", @class = "form-control" })
+            <div class="text-danger">
+                @Html.ValidationMessageFor(x => x.SelectedRoomName)
+            </div>
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(x => x.SelectedLocationName)
-        @Html.DropDownListFor(x => x.SelectedLocationName, new SelectListItem[0], new { id = "locations-select" })
-        @Html.ValidationMessageFor(x => x.SelectedLocationName)
+    <div class="clearfix"></div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.SelectedLocationName, new { @class = "col-sm-1 control-label" })
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.SelectedLocationName, new SelectListItem[0], new { id = "locations-select", @class = "form-control" })
+            <div class="text-danger">
+                @Html.ValidationMessageFor(x => x.SelectedLocationName)
+            </div>
+        </div>
     </div>
+    <div class="clearfix"></div>
 
-    <a href="javascript:document.getElementById('localization-form').submit()">Localize</a>
+    <div class="form-group">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary" type="submit">Localize</button>
+            @Html.ActionLink("Cancel", "Index", "Dashboard", null, new { @class="btn btn-default cancel-link" })
+        </div>
+    </div>
 }

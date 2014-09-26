@@ -17,14 +17,28 @@ namespace Tethys.Notifier.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            var ipAddress = Request.UserHostAddress;
+            var macAddress = NativeMethods.GetMacAddress(ipAddress);
+            var deviceService = new DeviceService();
+            if (ipAddress != "::1")
+            {
+                var device = await deviceService.Get(ipAddress, macAddress);
+
+                if (device != null && device.IsLocalized)
+                {
+                    return RedirectToAction("Index", "Dashboard");
+                }
+            }
+
             var roomService = new RoomService();
             var rooms = await roomService.Get();
+
             Session["Rooms"] = rooms;
 
             var model = new LocalizationViewModel
             {
-                IpAddress = Request.UserHostAddress,
-                MacAddress = NativeMethods.GetMacAddress(Request.UserHostAddress),
+                IpAddress = ipAddress,
+                MacAddress = macAddress,
                 Departments = rooms.Select(x => x.Department).DistinctBy(x => x.Name)
             };
 
@@ -67,10 +81,10 @@ namespace Tethys.Notifier.Controllers
             };
 
             var localizationService = new LocalizationService();
-
             var response = await localizationService.Localize(device);
+            Session["localization_response"] = response;
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }

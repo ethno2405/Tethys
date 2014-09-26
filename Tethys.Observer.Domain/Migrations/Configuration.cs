@@ -33,31 +33,37 @@ namespace Tethys.Observer.Domain.Migrations
                 {
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000001"),
                     Name = "Emergency",
+                    Color = "#cc0000"
                 },
                 new CallType
                 {
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000002"),
                     Name = "Assistance",
+                    Color = "#ffa500"
                 },
                 new CallType
                 {
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000003"),
                     Name = "Sanitary",
+                    Color = "#5370ae"
                 },
                 new CallType
                 {
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000004"),
                     Name = "Sanitary Assistance",
+                    Color = "#ffe800"
                 },
                 new CallType
                 {
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000005"),
                     Name = "Doctor",
+                    Color = "#a7d7f0"
                 },
                 new CallType
                 {
                     Id = Guid.Parse("00000000-0000-0000-0000-000000000006"),
                     Name = "Presence",
+                    Color = "#2a8300"
                 });
 
             context.Locations.AddOrUpdate(

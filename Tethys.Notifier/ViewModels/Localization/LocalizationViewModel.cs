@@ -16,8 +16,10 @@ namespace Tethys.Notifier.ViewModels.Localization
         [Required(ErrorMessage = "Please select a device name")]
         public string DeviceName { get; set; }
 
+        [DisplayName("IP address")]
         public string IpAddress { get; set; }
 
+        [DisplayName("MAC address")]
         public string MacAddress { get; set; }
 
         public IEnumerable<Room> Rooms { get; set; }

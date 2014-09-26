@@ -5,10 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Mvc;
 using Tethys.Observer.Domain.Services;
+using Tethys.Observer.Infrastructure;
 using Tethys.Observer.ViewModels.Department;
 
 namespace Tethys.Observer.Controllers
 {
+    [RequireAuthorization]
     public class DepartmentController : BaseController
     {
         [HttpPost]

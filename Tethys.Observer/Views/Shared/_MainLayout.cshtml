@@ -30,6 +30,7 @@
                 <ul class="nav nav-pills nav-stacked well well-sm main-navigation" role="tablist">
                     <li class="@(controllerName == "room" ? "active" : string.Empty)">@Html.ActionLink("Rooms", "List", "Room")</li>
                     <li class="@(controllerName == "department" ? "active" : string.Empty)">@Html.ActionLink("Departments", "List", "Department")</li>
+                    <li class="@(controllerName == "device" ? "active" : string.Empty)">@Html.ActionLink("Devices", "List", "Device")</li>
                     <li class="nav-divider"></li>
                     <li>@Html.ActionLink("Logout", "Logout", "User")</li>
                 </ul>

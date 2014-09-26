@@ -103,6 +103,14 @@
     <Compile Include="Migrations\201409221442386_Unique_Room_For_Department.Designer.cs">
       <DependentUpon>201409221442386_Unique_Room_For_Department.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409260923549_Added_Color_To_CallType.cs" />
+    <Compile Include="Migrations\201409260923549_Added_Color_To_CallType.Designer.cs">
+      <DependentUpon>201409260923549_Added_Color_To_CallType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409261122167_Added_IsLocalized_Property_To_Device.cs" />
+    <Compile Include="Migrations\201409261122167_Added_IsLocalized_Property_To_Device.Designer.cs">
+      <DependentUpon>201409261122167_Added_IsLocalized_Property_To_Device.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
@@ -148,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409221442386_Unique_Room_For_Department.resx">
       <DependentUpon>201409221442386_Unique_Room_For_Department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409260923549_Added_Color_To_CallType.resx">
+      <DependentUpon>201409260923549_Added_Color_To_CallType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409261122167_Added_IsLocalized_Property_To_Device.resx">
+      <DependentUpon>201409261122167_Added_IsLocalized_Property_To_Device.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,5 +9,9 @@ namespace Tethys.Notifier.ViewModels.Dashboard
     public class IndexViewModel
     {
         public IList<CallType> CallTypes { get; set; }
+
+        public bool IsLocalized { get; set; }
+
+        public string Message { get; set; }
     }
 }

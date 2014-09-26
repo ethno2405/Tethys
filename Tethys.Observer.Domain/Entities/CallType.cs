@@ -9,6 +9,9 @@ namespace Tethys.Observer.Domain.Entities
 {
     public class CallType
     {
+        [MaxLength(7)]
+        public string Color { get; set; }
+
         public Guid Id { get; set; }
 
         [Required]

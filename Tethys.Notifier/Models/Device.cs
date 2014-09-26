@@ -11,6 +11,8 @@ namespace Tethys.Notifier.Models
         [DisplayName("IP")]
         public string IpAddress { get; set; }
 
+        public bool IsLocalized { get; set; }
+
         public Location Location { get; set; }
 
         [DisplayName("MAC")]
