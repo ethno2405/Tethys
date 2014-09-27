@@ -14,7 +14,7 @@ namespace Tethys.Observer.Infrastructure
         {
         }
 
-        public RequireAuthorizationAttribute(IEnumerable<string> allowedRoles)
+        public RequireAuthorizationAttribute(params string[] allowedRoles)
         {
             roles = allowedRoles;
         }
@@ -25,7 +25,7 @@ namespace Tethys.Observer.Infrastructure
 
             if (!roles.Any()) return true;
 
-            return roles.Contains(SecurityManager.Current.LoggedUser.Role);
+            return roles.Contains(SecurityManager.Current.LoggedUser.Role.Name);
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)

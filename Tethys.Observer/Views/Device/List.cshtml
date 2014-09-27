@@ -34,7 +34,10 @@
                 <td>
                     @if (device.IsLocalized)
                     {
-                        @Html.ActionLink("Unlocalize", "Unlocalize", new { id = device.Id })    
+                        var message = string.Format("Are you sure you want to unlocalize device {0} in room {1}, department {2}?", device.Name, device.Room.Name, device.Room.Department.Name);
+                        var confirmUrl = "/device/Unlocalize/" + device.Id;
+                        
+                        <button class="btn btn-default btn-xs btn-delete-user" onclick="showPopup('Please confirm', '@(message)', '@(confirmUrl)')">Unlocalize</button>
                     }
                 </td>
             </tr>

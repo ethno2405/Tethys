@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <div id="popup"></div>
         @{
             var hasLogin = Tethys.Observer.Infrastructure.SecurityManager.Current.LoggedUser != null;
 
@@ -31,6 +32,7 @@
                     <li class="@(controllerName == "room" ? "active" : string.Empty)">@Html.ActionLink("Rooms", "List", "Room")</li>
                     <li class="@(controllerName == "department" ? "active" : string.Empty)">@Html.ActionLink("Departments", "List", "Department")</li>
                     <li class="@(controllerName == "device" ? "active" : string.Empty)">@Html.ActionLink("Devices", "List", "Device")</li>
+                    <li class="@(controllerName == "user" ? "active" : string.Empty)">@Html.ActionLink("Users", "List", "User")</li>
                     <li class="nav-divider"></li>
                     <li>@Html.ActionLink("Logout", "Logout", "User")</li>
                 </ul>
@@ -42,5 +44,11 @@
             @RenderBody()
         </div>
     </div>
+
+    <script src="~/Scripts/script.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+
+    @RenderSection("scripts", false)
 </body>
 </html>

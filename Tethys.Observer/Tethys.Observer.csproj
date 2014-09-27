@@ -139,6 +139,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
+    <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -157,8 +158,10 @@
     </Compile>
     <Compile Include="ViewModels\Department\DepartmentsViewModel.cs" />
     <Compile Include="ViewModels\Device\DevicesViewModel.cs" />
+    <Compile Include="ViewModels\Modal\PopupViewModel.cs" />
     <Compile Include="ViewModels\Room\RoomsListViewModel.cs" />
     <Compile Include="ViewModels\User\LoginViewModel.cs" />
+    <Compile Include="ViewModels\User\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -168,9 +171,10 @@
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
-    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.4.js" />
-    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery.signalR-2.1.1.js" />
     <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
     <Content Include="Web.config" />
@@ -184,6 +188,10 @@
     <Content Include="Views\Room\List.cshtml" />
     <Content Include="Views\Department\List.cshtml" />
     <Content Include="Views\Device\List.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Modal\Popup.cshtml" />
+    <Content Include="Scripts\script.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,112 @@
+﻿@model Tethys.Observer.ViewModels.User.UsersViewModel
+@using Tethys.Observer.Infrastructure;
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewUserFirstName, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(x => x.NewUserFirstName, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewUserFirstName)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewUserLastName, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(x => x.NewUserLastName, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewUserLastName)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewUserLogin, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(x => x.NewUserLogin, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewUserLogin)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewUserPassword, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.PasswordFor(x => x.NewUserPassword, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewUserPassword)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewUserConfirmPassword, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.PasswordFor(x => x.NewUserConfirmPassword, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewUserConfirmPassword)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(x => x.NewUserRole, new { @class = "col-sm-3 control-label" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(x => x.NewUserRole, Model.Roles.AsSelectList(x => x.Name, Model.NewUserRole), new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(x => x.NewUserRole)
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary pull-right" type="submit">Create</button>
+        }
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @user.FullName
+                </td>
+                <td>
+                    @user.Login
+                </td>
+                <td>
+                    @user.Role.Name
+                </td>
+                <td>
+                    @if (user.Login != "sa")
+                    {
+                        var message = string.Format("Are you sure you want to delete {0} {1} ({2})?", user.Role.Name, user.FullName, user.Login);
+                        var confirmUrl = "/user/delete/" + user.Id;
+                        
+                        <button class="btn btn-default btn-xs btn-delete-user" onclick="showPopup('Please confirm', '@(message)', '@(confirmUrl)')">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

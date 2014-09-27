@@ -55,7 +55,7 @@ namespace Tethys.Observer.Infrastructure
 
         public bool TryLogin(string login, string password, TethysContext context)
         {
-            var user = context.Users.FirstOrDefault(x => x.Login == login);
+            var user = context.Users.Include("Role").FirstOrDefault(x => x.Login == login);
 
             if (user == null) return false;
 

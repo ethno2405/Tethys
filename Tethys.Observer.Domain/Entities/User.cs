@@ -12,6 +12,14 @@ namespace Tethys.Observer.Domain.Entities
         [Required]
         public string FirstName { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return string.Concat(FirstName, " ", LastName);
+            }
+        }
+
         public Guid Id { get; set; }
 
         [Required]
@@ -24,6 +32,6 @@ namespace Tethys.Observer.Domain.Entities
         public string Password { get; set; }
 
         [Required]
-        public string Role { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

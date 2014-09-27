@@ -31,6 +31,8 @@ namespace Tethys.Observer.Domain.DataAccess
 
         public DbSet<Location> Locations { get; set; }
 
+        public DbSet<Role> Roles { get; set; }
+
         public DbSet<Room> Rooms { get; set; }
 
         public DbSet<User> Users { get; set; }

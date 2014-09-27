@@ -23,7 +23,7 @@ namespace Tethys.Notifier.Controllers
                 var deviceService = new DeviceService();
                 var mac = NativeMethods.GetMacAddress(Request.UserHostAddress);
                 var device = await deviceService.Get(Request.UserHostAddress, mac);
-                isLocalized = device.IsLocalized;
+                isLocalized = device != null && device.IsLocalized;
             }
 
             var callTypeService = new CallTypeService();
