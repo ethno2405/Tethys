@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Tethys.Observer.Domain.Entities;
 
-namespace Tethys.Notifier.Models.Calls
+namespace Tethys.Observer.WebApi.Models.Requests
 {
-    public class Call
+    public class CallRequest
     {
         public string CallType { get; set; }
 

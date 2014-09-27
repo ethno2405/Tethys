@@ -16,16 +16,10 @@ namespace Tethys.Notifier.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            var isLocalized = false;
-
-            if (Request.UserHostAddress != "::1")
-            {
-                var deviceService = new DeviceService();
-                var mac = NativeMethods.GetMacAddress(Request.UserHostAddress);
-                var device = await deviceService.Get(Request.UserHostAddress, mac);
-                isLocalized = device != null && device.IsLocalized;
-            }
-
+            var deviceService = new DeviceService();
+            var mac = NativeMethods.GetMacAddress(Request.UserHostAddress);
+            var device = await deviceService.Get(Request.UserHostAddress, mac);
+            var isLocalized = device != null && device.IsLocalized;
             var callTypeService = new CallTypeService();
             var calltypes = await callTypeService.Get();
             var localizationResponse = Session["localization_response"] as LocalizationResponse;

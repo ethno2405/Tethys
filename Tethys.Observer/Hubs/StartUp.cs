@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using Owin;
 
-namespace Tethys.Observer.Infrastructure
+namespace Tethys.Observer.Hubs
 {
-    public class Startup
+    public class StartUp
     {
         public void Configuration(IAppBuilder app)
         {

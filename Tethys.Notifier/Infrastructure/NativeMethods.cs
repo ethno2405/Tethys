@@ -22,7 +22,7 @@ namespace Tethys.Notifier.Infrastructure
 
             if (ipAddress == "::1" || ipAddress == "localhost")
             {
-                return string.Empty;
+                return GlobalSettings.Current.ServerPhysicalAddress;
             }
 
             var ip = IPAddress.Parse(ipAddress);

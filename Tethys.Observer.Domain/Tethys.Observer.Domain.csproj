@@ -116,9 +116,14 @@
     <Compile Include="Migrations\201409270748567_Added_Role_Entity.Designer.cs">
       <DependentUpon>201409270748567_Added_Role_Entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409271640442_Modified_Call_Entity.cs" />
+    <Compile Include="Migrations\201409271640442_Modified_Call_Entity.Designer.cs">
+      <DependentUpon>201409271640442_Modified_Call_Entity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CallService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\LocationService.cs" />
@@ -171,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409270748567_Added_Role_Entity.resx">
       <DependentUpon>201409270748567_Added_Role_Entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409271640442_Modified_Call_Entity.resx">
+      <DependentUpon>201409271640442_Modified_Call_Entity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

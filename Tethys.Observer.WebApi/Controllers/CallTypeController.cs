@@ -14,5 +14,10 @@ namespace Tethys.Observer.WebApi.Controllers
         {
             return Context.CallTypes;
         }
+
+        public CallType Get(string callType)
+        {
+            return Context.CallTypes.FirstOrDefault(x => x.Name == callType);
+        }
     }
 }

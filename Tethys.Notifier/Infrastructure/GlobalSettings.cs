@@ -42,6 +42,14 @@ namespace Tethys.Notifier.Infrastructure
             }
         }
 
+        public string ServerPhysicalAddress
+        {
+            get
+            {
+                return GetValue<string>("ServerPhysicalAddress");
+            }
+        }
+
         private T GetValue<T>(string key)
         {
             if (string.IsNullOrEmpty(key))

@@ -22,5 +22,17 @@ namespace Tethys.Notifier.Services
                 return Json.Decode<IList<CallType>>(json);
             }
         }
+
+        public async Task<CallType> Get(string callType)
+        {
+            if (string.IsNullOrEmpty(callType)) throw new ArgumentNullException("callType");
+
+            using (var httpClient = new HttpClient())
+            {
+                var json = await httpClient.GetStringAsync(string.Concat(GlobalSettings.Current.ObserverWebApiBaseUrl, "/calltype/get?calltype=", callType));
+
+                return Json.Decode<CallType>(json);
+            }
+        }
     }
 }

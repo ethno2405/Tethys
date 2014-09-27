@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using Microsoft.Owin;
-using Tethys.Observer.Infrastructure;
+using Tethys.Observer.Hubs;
 
 [assembly: AssemblyTitle("Tethys.Observer")]
 [assembly: AssemblyDescription("")]
@@ -15,4 +15,4 @@ using Tethys.Observer.Infrastructure;
 [assembly: Guid("5c314460-1a71-48ae-bd93-569b4a15439a")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: OwinStartup(typeof(Startup))]
+[assembly: OwinStartup(typeof(StartUp))]

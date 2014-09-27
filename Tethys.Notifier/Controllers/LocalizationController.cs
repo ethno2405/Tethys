@@ -20,14 +20,11 @@ namespace Tethys.Notifier.Controllers
             var ipAddress = Request.UserHostAddress;
             var macAddress = NativeMethods.GetMacAddress(ipAddress);
             var deviceService = new DeviceService();
-            if (ipAddress != "::1")
-            {
-                var device = await deviceService.Get(ipAddress, macAddress);
+            var device = await deviceService.Get(ipAddress, macAddress);
 
-                if (device != null && device.IsLocalized)
-                {
-                    return RedirectToAction("Index", "Dashboard");
-                }
+            if (device != null && device.IsLocalized)
+            {
+                return RedirectToAction("Index", "Dashboard");
             }
 
             var roomService = new RoomService();
@@ -65,7 +62,7 @@ namespace Tethys.Notifier.Controllers
             {
                 Name = model.DeviceName,
                 IpAddress = model.IpAddress,
-                MacAddress = model.MacAddress,
+                MacAddress = model.MacAddress ?? "fake",
                 Location = new Location
                 {
                     Name = model.SelectedLocationName

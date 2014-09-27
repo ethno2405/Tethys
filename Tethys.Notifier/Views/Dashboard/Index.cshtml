@@ -7,9 +7,9 @@
 
 @section scripts
 {
-    <script type="text/javascript" src="~/Scripts/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.signalR-2.1.1.js"></script>
-    <script src="signalr/hubs"></script>
+    <script src="/signalr/js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -19,16 +19,19 @@
             }
             
             var callNotifier = $.connection.callNotifierHub;
-            callNotifier.client.callRecieved = function (callType) {
-                alert(callType);
-            };
 
             $.connection.hub.start().done(function () {
                 $('.call-type-button').click(function () {
-
-                    callNotifier.server.notify($(this).text());
+                    alert('hi');
+                    alert(callNotifier);
+                    alert($(this).text().trim());
+                    callNotifier.server.notify($(this).text().trim());
                 });
             });
+
+            callNotifier.client.callRecieved = function (callType) {
+                alert(callType);
+            };
         });
     </script>
 }
@@ -40,7 +43,7 @@
     <div class="btn-group-vertical calls">
         @foreach (var callType in Model.CallTypes)
         {
-            <a href="javascript:return 0" class="pull-left call-type-button btn btn-default" data-isActive="@callType.IsActive">
+            <a href="#" class="pull-left call-type-button btn btn-default" data-isActive="@callType.IsActive">
                 <div class="call-type-wrapper">
                     <div class="pull-left color-icon" style="background-color:@callType.Color"></div>
                     <span class="pull-left call-type-text">@callType.Name</span>
