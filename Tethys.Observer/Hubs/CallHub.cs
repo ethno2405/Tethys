@@ -9,9 +9,5 @@ namespace Tethys.Observer.Hubs
 {
     public class CallHub : Hub
     {
-        public void Notify(Call call)
-        {
-            Clients.All.callRecieved(call);
-        }
     }
 }

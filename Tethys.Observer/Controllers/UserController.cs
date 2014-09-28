@@ -59,7 +59,7 @@ namespace Tethys.Observer.Controllers
                 return View(model);
             }
 
-            return RedirectToAction("List", "Room");
+            return RedirectToAction("List", "Call");
         }
 
         [HttpGet]

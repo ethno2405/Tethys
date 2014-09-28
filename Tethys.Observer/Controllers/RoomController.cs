@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.AspNet.SignalR;
 using Tethys.Observer.Domain.Entities;
 using Tethys.Observer.Domain.Services;
+using Tethys.Observer.Hubs;
 using Tethys.Observer.Infrastructure;
 using Tethys.Observer.ViewModels.Room;
 

@@ -4,7 +4,7 @@
 }
 
 .logo {
-    margin-left: 100px;
+    /*margin-left: 100px;*/
     width: 157px;
 }
 
@@ -17,4 +17,16 @@
     margin-right: auto;
     margin-top: 30%;
     max-width: 500px;
+}
+
+.color-icon {
+    width: 25px;
+    height: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.main-navigation {
+    margin-bottom: 30px !important;
 }

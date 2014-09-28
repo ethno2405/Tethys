@@ -140,11 +140,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CallController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WebApi\BaseApiController.cs" />
+    <Compile Include="Controllers\WebApi\CallController.cs" />
+    <Compile Include="Controllers\WebApi\CallTypeController.cs" />
+    <Compile Include="Controllers\WebApi\DeviceController.cs" />
+    <Compile Include="Controllers\WebApi\LocalizationController.cs" />
+    <Compile Include="Controllers\WebApi\LocationController.cs" />
+    <Compile Include="Controllers\WebApi\RoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,14 +162,20 @@
     <Compile Include="Infrastructure\Extensions.cs" />
     <Compile Include="Infrastructure\RequireAuthorizationAttribute.cs" />
     <Compile Include="Infrastructure\SecurityManager.cs" />
+    <Compile Include="Models\CallNotification.cs" />
+    <Compile Include="Models\WebApi\Requests\CallRequest.cs" />
+    <Compile Include="Models\WebApi\Requests\LocalizationRequest.cs" />
+    <Compile Include="Models\WebApi\Responses\LocalizationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TethysResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TethysResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Call\CallsViewModel.cs" />
     <Compile Include="ViewModels\Department\DepartmentsViewModel.cs" />
     <Compile Include="ViewModels\Device\DevicesViewModel.cs" />
+    <Compile Include="ViewModels\Modal\AlertViewModel.cs" />
     <Compile Include="ViewModels\Modal\PopupViewModel.cs" />
     <Compile Include="ViewModels\Room\RoomsListViewModel.cs" />
     <Compile Include="ViewModels\User\LoginViewModel.cs" />
@@ -196,10 +210,12 @@
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Modal\Popup.cshtml" />
     <Content Include="Scripts\script.js" />
+    <Content Include="Views\Modal\Alert.cshtml" />
+    <Content Include="Views\Call\List.cshtml" />
+    <Content Include="Views\Call\GetCalls.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -15,7 +15,7 @@ namespace Tethys.Observer.Domain.Services
         {
         }
 
-        public void Notify(DateTime createdOn, string macAddress, string ipAddress, string callType)
+        public Call Notify(DateTime createdOn, string macAddress, string ipAddress, string callType)
         {
             if (createdOn == DateTime.MinValue) throw new ArgumentOutOfRangeException("createdOn");
             if (string.IsNullOrEmpty(macAddress)) throw new ArgumentNullException("macAddress");
@@ -54,6 +54,8 @@ namespace Tethys.Observer.Domain.Services
 
             Context.Calls.Add(call);
             Context.SaveChanges();
+
+            return call;
         }
     }
 }

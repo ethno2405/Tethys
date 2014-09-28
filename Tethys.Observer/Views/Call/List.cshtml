@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Calls";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div id="call-list">
+    @Html.Action("GetCalls", "Call")
+</div>

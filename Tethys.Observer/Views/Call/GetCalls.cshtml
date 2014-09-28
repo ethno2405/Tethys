@@ -1,0 +1,39 @@
+﻿@model Tethys.Observer.ViewModels.Call.CallsViewModel
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Call</th>
+            <th>Room</th>
+            <th>Location</th>
+            <th>Department</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var call in Model.Calls)
+        {
+            <tr>
+                <td>
+                    <div class="color-icon" style="background-color:@(call.Type.Color)"></div>
+                </td>
+                <td>
+                    @call.Type.Name
+                </td>
+                <td>
+                    @call.Room
+                </td>
+                <td>
+                    @call.Location
+                </td>
+                <td>
+                    @call.Department
+                </td>
+                <td>
+                    @call.CreatedOn
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

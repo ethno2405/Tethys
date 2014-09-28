@@ -20,11 +20,8 @@
             
             var callNotifier = $.connection.callNotifierHub;
 
-            $.connection.hub.start().done(function () {
+            $.connection.hub.start({ transport: ['webSockets', 'longPolling'] }).done(function () {
                 $('.call-type-button').click(function () {
-                    alert('hi');
-                    alert(callNotifier);
-                    alert($(this).text().trim());
                     callNotifier.server.notify($(this).text().trim());
                 });
             });

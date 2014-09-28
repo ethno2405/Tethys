@@ -9,6 +9,17 @@ namespace Tethys.Observer.Controllers
 {
     public class ModalController : BaseController
     {
+        public ActionResult Alert(string title, string message)
+        {
+            var model = new AlertViewModel
+            {
+                Title = title,
+                Message = message
+            };
+
+            return View(model);
+        }
+
         public ActionResult Popup(string title, string message, string confirmUrl)
         {
             var model = new PopupViewModel

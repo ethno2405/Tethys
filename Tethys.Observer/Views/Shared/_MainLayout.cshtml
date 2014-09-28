@@ -23,24 +23,24 @@
                     <i>Observer</i>
                 </div>
             </div>
-            <div class="col-sm-3 pull-left">
+            <div>
                 @{
                 var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
                 }
 
-                <ul class="nav nav-pills nav-stacked well well-sm main-navigation" role="tablist">
+                <ul class="nav nav-tabs main-navigation" role="tablist">
+                    <li class="@(controllerName == "call" ? "active" : string.Empty)">@Html.ActionLink("Calls", "List", "Call")</li>
                     <li class="@(controllerName == "room" ? "active" : string.Empty)">@Html.ActionLink("Rooms", "List", "Room")</li>
                     <li class="@(controllerName == "department" ? "active" : string.Empty)">@Html.ActionLink("Departments", "List", "Department")</li>
                     <li class="@(controllerName == "device" ? "active" : string.Empty)">@Html.ActionLink("Devices", "List", "Device")</li>
                     <li class="@(controllerName == "user" ? "active" : string.Empty)">@Html.ActionLink("Users", "List", "User")</li>
-                    <li class="nav-divider"></li>
-                    <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+                    <li class="pull-right">@Html.ActionLink("Logout", "Logout", "User")</li>
                 </ul>
             </div>
             }
         }
 
-        <div class="@(hasLogin ? "col-sm-9 pull-left" : string.Empty)">
+        <div>
             @RenderBody()
         </div>
     </div>
@@ -56,14 +56,10 @@
 
             var callHub = $.connection.callHub;
 
-            $.connection.hub.start().done(function () {
-                //$('.call-type-button').click(function () {
-                //    calllHub.server.notify($(this).text());
-                //});
-            });
-
-            callHub.client.callRecieved = function (callType) {
-                alert(callType);
+            $.connection.hub.start({ transport: ['webSockets', 'longPolling'] });
+            
+            callHub.client.callRecieved = function (callNotification) {
+                showAlert("Call triggered", callNotification.Message);
             };
         });
     </script>
