@@ -13,13 +13,7 @@ namespace Tethys.Observer.Infrastructure
         {
             var controller = (BaseController)base.CreateController(requestContext, controllerName);
 
-            var connectionStringBuilder = new DbConnectionStringBuilder();
-            connectionStringBuilder.Add("Data Source", TethysResources.DatabaseServerName);
-            connectionStringBuilder.Add("Initial Catalog", TethysResources.DatabaseName);
-            connectionStringBuilder.Add("User Id", TethysResources.DatabaseLogin);
-            connectionStringBuilder.Add("Password", TethysResources.DatabasePassword);
-
-            controller.Context = new TethysContext(connectionStringBuilder.ConnectionString);
+            controller.Context = new TethysContext();
 
             return controller;
         }

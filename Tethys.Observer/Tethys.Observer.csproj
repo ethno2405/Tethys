@@ -167,11 +167,6 @@
     <Compile Include="Models\WebApi\Requests\LocalizationRequest.cs" />
     <Compile Include="Models\WebApi\Responses\LocalizationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TethysResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TethysResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\Call\CallsViewModel.cs" />
     <Compile Include="ViewModels\Department\DepartmentsViewModel.cs" />
     <Compile Include="ViewModels\Device\DevicesViewModel.cs" />
@@ -229,12 +224,6 @@
       <Project>{e79f84c8-a77a-40e0-8eca-2ddad22f1159}</Project>
       <Name>Tethys.Observer.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TethysResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TethysResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
