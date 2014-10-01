@@ -40,6 +40,7 @@
             <th>Room</th>
             <th>Department</th>
             <th>Number of devices</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -54,6 +55,14 @@
                 </td>
                 <td>
                     @room.Devices.Count
+                </td>
+                <td>
+                    @if (!room.Devices.Any(x => x.IsLocalized))
+                    {
+                        <a href="/room/delete/@(room.Id)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    }
                 </td>
             </tr>
         }

@@ -23,13 +23,13 @@
                     @device.Name
                 </td>
                 <td>
-                    @device.Room.Department.Name
+                    @(device.Room == null ? string.Empty : device.Room.Department.Name)
                 </td>
                 <td>
-                    @device.Room.Name
+                    @(device.Room == null ? string.Empty : device.Room.Name)
                 </td>
                 <td>
-                    @device.Location.Name
+                    @(device.Location == null ? string.Empty : device.Location.Name)
                 </td>
                 <td>
                     @if (device.IsLocalized)

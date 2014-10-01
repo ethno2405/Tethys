@@ -29,6 +29,7 @@
         <tr>
             <th>Department</th>
             <th>Rooms</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,14 @@
                 <td>
                     @item.Rooms.Count
                 </td>
+                <th>
+                    @if (item.Rooms.Count == 0)
+                    {
+                        <a href="/department/delete/@(item.Id)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    }
+                </th>
             </tr>
         }
     </tbody>

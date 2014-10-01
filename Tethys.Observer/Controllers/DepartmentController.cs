@@ -27,6 +27,26 @@ namespace Tethys.Observer.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpGet]
+        public ActionResult Delete(Guid id)
+        {
+            var department = Context.Departments.FirstOrDefault(x => x.Id == id);
+            if (department == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (department.Rooms.Any())
+            {
+                return HttpNotFound();
+            }
+
+            var departmentService = new DepartmentService(Context);
+            departmentService.Delete(department);
+
+            return RedirectToAction("List");
+        }
+
         public ActionResult List()
         {
             var model = new DepartmentsViewModel

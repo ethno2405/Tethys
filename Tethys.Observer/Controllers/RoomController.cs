@@ -32,6 +32,26 @@ namespace Tethys.Observer.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpGet]
+        public ActionResult Delete(Guid id)
+        {
+            var room = Context.Rooms.FirstOrDefault(x => x.Id == id);
+            if (room == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (room.Devices.Any(x => x.IsLocalized))
+            {
+                return HttpNotFound();
+            }
+
+            var roomService = new RoomService(Context);
+            roomService.Delete(room);
+
+            return RedirectToAction("List");
+        }
+
         public ActionResult List()
         {
             var model = new RoomsListViewModel

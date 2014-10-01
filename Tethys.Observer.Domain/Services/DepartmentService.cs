@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,6 +78,19 @@ namespace Tethys.Observer.Domain.Services
             };
 
             Context.Departments.Add(department);
+            Context.SaveChanges();
+        }
+
+        public void Delete(Department department)
+        {
+            if (department == null) throw new ArgumentNullException("department");
+
+            if (Context.Entry(department).State == EntityState.Detached)
+            {
+                department = Context.Departments.FirstOrDefault(x => x.Id == department.Id);
+            }
+
+            Context.Departments.Remove(department);
             Context.SaveChanges();
         }
     }
