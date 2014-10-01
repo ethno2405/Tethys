@@ -167,6 +167,7 @@
     <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Diagrams\ServicesClassDiagram.cd" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

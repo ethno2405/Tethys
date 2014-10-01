@@ -132,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Diagrams\ServicesClassDiagram.cd" />
+    <None Include="Diagrams\EntitiesClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

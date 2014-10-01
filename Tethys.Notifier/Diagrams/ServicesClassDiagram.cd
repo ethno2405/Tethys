@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Tethys.Notifier.Services.CallService">
+    <Position X="5.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CallService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Notifier.Services.CallTypeService">
+    <Position X="5.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CallTypeService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Notifier.Services.DeviceService">
+    <Position X="1.5" Y="1" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DeviceService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Notifier.Services.LocalizationService">
+    <Position X="1.5" Y="2.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\LocalizationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Notifier.Services.RoomService">
+    <Position X="1.5" Y="4" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\RoomService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

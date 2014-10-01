@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="Tethys.Observer.Domain.Services.UserService">
+    <Position X="2.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.Services.DepartmentService">
+    <Position X="1.25" Y="11" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DepartmentService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.Services.BaseService">
+    <Position X="3.25" Y="4.25" Width="2.25" />
+    <AssociationLine Name="context" Type="Tethys.Observer.Domain.DataAccess.TethysContext" FixedFromPoint="true">
+      <Path>
+        <Point X="4" Y="4.25" />
+        <Point X="4" Y="3.723" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\BaseService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+      <Property Name="Context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.Services.CallService">
+    <Position X="5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CallService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.Services.DeviceService">
+    <Position X="5" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAIAAAAAAEAAAAAAACAAAAA=</HashCode>
+      <FileName>Services\DeviceService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.Services.LocationService">
+    <Position X="5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\LocationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.Services.RoomService">
+    <Position X="0.5" Y="8.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Services\RoomService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.DataAccess.TethysContext">
+    <Position X="3" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACIAAAgCUgAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\TethysContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
