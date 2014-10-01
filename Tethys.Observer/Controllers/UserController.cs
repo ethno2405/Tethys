@@ -38,7 +38,7 @@ namespace Tethys.Observer.Controllers
         {
             if (SecurityManager.Current.LoggedUser != null)
             {
-                return RedirectToAction("List", "Room");
+                return RedirectToAction("List", "Call");
             }
 
             return View(new LoginViewModel());

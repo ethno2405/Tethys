@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Tethys.Observer.Controllers.WebApi.BaseApiController">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Controllers\WebApi\BaseApiController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Tethys.Observer.Controllers.WebApi.CallController">
+    <Position X="5.25" Y="7.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WebApi\CallController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Controllers.WebApi.CallTypeController">
+    <Position X="8.25" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WebApi\CallTypeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Controllers.WebApi.DeviceController">
+    <Position X="5.25" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WebApi\DeviceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Controllers.WebApi.LocalizationController">
+    <Position X="8.25" Y="5.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WebApi\LocalizationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Controllers.WebApi.LocationController">
+    <Position X="8.25" Y="3.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WebApi\LocationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Controllers.WebApi.RoomController">
+    <Position X="4" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WebApi\RoomController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tethys.Observer.Domain.DataAccess.TethysContext" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -6,13 +6,22 @@
     width: 100%;
 }
 
+.call-list {
+    list-style-type: none;
+    margin: 0;
+}
+
+.call-list-item {
+    width: 50%;
+    height: 115px;
+}
+
 .call-type-button {
-    height: 50%;
+    height: 100%;
 }
 
 .call-type-text {
-    margin-top: 2px;
-    margin-left: 5px;
+    margin: 0 auto;
 }
 
 .call-type-wrapper {
@@ -26,11 +35,12 @@
 }
 
 .color-icon {
-    width: 25px;
-    height: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
+    border-radius: 45px;
+    height: 80px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
 }
 
 .localization-circle-btn {
@@ -41,10 +51,22 @@
     line-height: 172px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 120px;
+    margin-top: 40px;
     text-align: center;
     width: 200px;
+    margin-bottom: 20px;
 }
+
+.not-localized-view {
+    margin-top: 40px;
+}
+
+    .not-localized-view p {
+        display: block;
+        margin: 0 auto;
+        width: 245px;
+        text-align: center;
+    }
 
 .form-group {
     max-width: 100%;

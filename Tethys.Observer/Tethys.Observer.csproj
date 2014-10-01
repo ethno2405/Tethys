@@ -186,7 +186,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\Style.css" />
+    <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Assets\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Diargrams\WebApiClassDiagram.cd" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
@@ -215,7 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\Fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

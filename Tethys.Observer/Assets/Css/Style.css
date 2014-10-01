@@ -30,3 +30,7 @@
 .main-navigation {
     margin-bottom: 30px !important;
 }
+
+    .main-navigation li:first-child {
+        margin-left: 30px;
+    }

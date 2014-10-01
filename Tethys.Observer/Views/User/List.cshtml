@@ -98,12 +98,12 @@
                     @user.Role.Name
                 </td>
                 <td>
-                    @if (user.Login != "sa")
+                    @if (user.Login != "sa" && user.Login != SecurityManager.Current.LoggedUser.Login)
                     {
                         var message = string.Format("Are you sure you want to delete {0} {1} ({2})?", user.Role.Name, user.FullName, user.Login);
                         var confirmUrl = "/user/delete/" + user.Id;
                         
-                        <button class="btn btn-default btn-xs btn-delete-user" onclick="showPopup('Please confirm', '@(message)', '@(confirmUrl)')">Delete</button>
+                        <a href="javascript:showPopup('Please confirm', '@(message)', '@(confirmUrl)')"><span class="glyphicon glyphicon-trash"></span></a>
                     }
                 </td>
             </tr>

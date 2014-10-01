@@ -33,6 +33,8 @@ namespace Tethys.Notifier.Controllers
 
             var model = new IndexViewModel
             {
+                IpAddress = Request.UserHostAddress,
+                MacAddress = mac,
                 Message = message,
                 IsLocalized = isLocalized,
                 CallTypes = calltypes

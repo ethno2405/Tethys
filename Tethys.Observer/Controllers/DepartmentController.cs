@@ -18,6 +18,7 @@ namespace Tethys.Observer.Controllers
         {
             if (!ModelState.IsValid)
             {
+                model.Departments = Context.Departments.OrderBy(x => x.Name).ToList();
                 return View("List", model);
             }
 

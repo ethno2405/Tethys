@@ -24,6 +24,7 @@ function showAlert(title, message) {
         },
         success: function (html) {
             $('#popup').html(html);
+            $('div.modal-backdrop').remove();
             $('#alert').modal();
 
             if (document.getElementById('call-list')) {

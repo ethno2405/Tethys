@@ -10,7 +10,11 @@ namespace Tethys.Notifier.ViewModels.Dashboard
     {
         public IList<CallType> CallTypes { get; set; }
 
+        public string IpAddress { get; set; }
+
         public bool IsLocalized { get; set; }
+
+        public string MacAddress { get; set; }
 
         public string Message { get; set; }
     }

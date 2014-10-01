@@ -17,7 +17,7 @@
             if (message) {
                 alert(message);
             }
-            
+
             var callNotifier = $.connection.callNotifierHub;
 
             $.connection.hub.start({ transport: ['webSockets', 'longPolling'] }).done(function () {
@@ -37,20 +37,26 @@
 {
     using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
     {
-    <div class="btn-group-vertical calls">
+    <div class="call-list">
         @foreach (var callType in Model.CallTypes)
         {
-            <a href="#" class="pull-left call-type-button btn btn-default" data-isActive="@callType.IsActive">
-                <div class="call-type-wrapper">
-                    <div class="pull-left color-icon" style="background-color:@callType.Color"></div>
-                    <span class="pull-left call-type-text">@callType.Name</span>
-                </div>
-            </a>
+            <div class="pull-left call-list-item">
+                <a href="#" class="call-type-button btn btn-default" data-isActive="@callType.IsActive">
+                    <div class="color-icon" style="background-color:@callType.Color"></div>
+                    <p class="call-type-text">@callType.Name</p>
+                </a>
+            </div>
         }
     </div>
     }
 }
 else
 { 
-    @Html.ActionLink("Localize", "Index", "Localization", null, new { @class = "btn btn-info btn-lg localization-circle-btn" })
+    <div class="not-localized-view">
+        <p><strong>This device is not yet localized.</strong></p>
+        <p><strong>Awaiting localization...</strong></p>
+        @Html.ActionLink("Localize", "Index", "Localization", null, new { @class = "btn btn-info btn-lg localization-circle-btn" })
+        <p><strong>@Model.IpAddress</strong></p>
+        <p><strong>@Model.MacAddress</strong></p>
+    </div>
 }
